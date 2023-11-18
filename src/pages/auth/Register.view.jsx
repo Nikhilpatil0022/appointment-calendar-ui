@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import {
   Text,
   FormControl,
@@ -97,33 +96,5 @@ const RegisterView = (props) => {
     </div>
   );
 };
-
-// RegisterView.propTypes = {
-//   formData: PropTypes.object({
-//     email: PropTypes.string,
-//     password: PropTypes.string,
-//     first_name: PropTypes.string,
-//     last_name: PropTypes.string,
-//     errorObject: PropTypes.object,
-//   }),
-//   isLoading: PropTypes.bool,
-//   handleOnEachFieldChange: PropTypes.func,
-//   handleOnSubmit: PropTypes.func,
-//   switchView: PropTypes.func,
-// };
-
-// RegisterView.defaultProps = {
-//   formData: {
-//     email: "",
-//     password: "",
-//     first_name: "",
-//     last_name: "",
-//     errorObject: {},
-//   },
-//   isLoading: false,
-//   handleOnEachFieldChange: () => {},
-//   handleOnSubmit: () => {},
-//   switchView: () => {},
-// };
 
 export default RegisterView;

@@ -1,20 +1,28 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import PrivateRoute from "../components/PrivateRoute";
 
 import Auth from "../pages/auth/Auth";
+import Dashboard from "../pages/dashboard/Dashboard";
+import AppointmentForm from "../pages/appointment-form/AppointmentForm";
+import Calendar from "../pages/calendar/Calendar";
 
 const RoutesConfig = () => {
   return (
     <div>
       <Routes>
         <Route path="/" exact element={<Auth />} />
-        {/* <Route path="/chat-room" exact element={<PrivateRoute />}>
-            <Route path="/chat-room" exact element={<ChatRoom />} />
-          </Route>
-          <Route path="/add-friends" exact element={<PrivateRoute />}>
-            <Route path="/add-friends" exact element={<AddFriends />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/chat-room" />} /> */}
+        <Route path="/dashboard" exact element={<PrivateRoute />}>
+          <Route path="/dashboard" exact element={<Dashboard />} />
+        </Route>
+        <Route path="/appointment-form" exact element={<PrivateRoute />}>
+          <Route path="/appointment-form" exact element={<AppointmentForm />} />
+        </Route>
+        <Route path="/calendar" exact element={<PrivateRoute />}>
+          <Route path="/calendar" exact element={<Calendar />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
     </div>
   );

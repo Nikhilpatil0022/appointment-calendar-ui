@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import {
   Text,
   FormControl,
@@ -73,29 +72,5 @@ const LogInView = (props) => {
     </div>
   );
 };
-
-// LogInView.propTypes = {
-//   formData: PropTypes.object({
-//     email: PropTypes.string,
-//     password: PropTypes.string,
-//     errorObject: PropTypes.object,
-//   }),
-//   isLoading: PropTypes.bool,
-//   handleOnEachFieldChange: PropTypes.func,
-//   handleOnSubmit: PropTypes.func,
-//   switchView: PropTypes.func,
-// };
-
-// LogInView.defaultProps = {
-//   formData: {
-//     email: "",
-//     password: "",
-//     errorObject: {},
-//   },
-//   isLoading: false,
-//   handleOnEachFieldChange: () => {},
-//   handleOnSubmit: () => {},
-//   switchView: () => {},
-// };
 
 export default LogInView;

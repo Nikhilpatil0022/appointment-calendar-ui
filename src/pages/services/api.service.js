@@ -19,6 +19,11 @@ class _ApiService {
   handleSuccessfullLogOut = () => {
     this.httpInterceptor.handleLogOutUser();
   };
+
+  postAppointmentDetails = (userId, params) => {
+    const url = `appointments/`;
+    return this.httpInterceptor.post(url, params);
+  };
 }
 
 const ApiService = new _ApiService();
