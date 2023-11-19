@@ -24,6 +24,15 @@ class _ApiService {
     const url = `appointments/`;
     return this.httpInterceptor.post(url, params);
   };
+
+  getAppointments = () => {
+    return this.httpInterceptor.get("appointments/");
+  };
+
+  putAppointment = (appointmentId, params) => {
+    const url = `appointments/${appointmentId}/`;
+    return this.httpInterceptor.put(url, params);
+  };
 }
 
 const ApiService = new _ApiService();

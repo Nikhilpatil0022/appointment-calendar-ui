@@ -54,6 +54,17 @@ class _HttpInterceptor {
 
     return this.performApiCall(axiosConfig);
   };
+
+  put = (url, params) => {
+    const axiosConfig = {
+      method: "PUT",
+      url: `${this.baseUrl}/${url}`,
+      headers: this.getHeaders(),
+      data: params,
+    };
+
+    return this.performApiCall(axiosConfig);
+  };
 }
 
 const httpInterceptor = new _HttpInterceptor();

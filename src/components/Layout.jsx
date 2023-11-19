@@ -14,6 +14,7 @@ import {
 import withNavigate from "../hooks/withNavigate";
 import { ApiService } from "../services/app.api.service";
 import { ListItem } from "./List";
+import { withAppConsumer } from "../context/app.context";
 
 const Wrapper = Styled.div`
     display: grid;
@@ -108,7 +109,16 @@ const NAVIGATION_CONFIG = [
 ];
 
 const Layout = (props) => {
-  const { user, navigate, location, children } = props;
+  const {
+    navigate,
+    location,
+    children,
+    appContext: {
+      state: {
+        userState: { userData },
+      },
+    },
+  } = props;
 
   const handleLogOut = React.useCallback(() => {
     ApiService.handleSuccessfullLogOut();
@@ -144,7 +154,7 @@ const Layout = (props) => {
         <Popover>
           <PopoverTrigger>
             <Heading className="user-name ellipsis" size="md">
-              {`Hi, ${getDisplayNameOfUser(user)}`}
+              {`Hi, ${getDisplayNameOfUser(userData)}`}
             </Heading>
           </PopoverTrigger>
 
@@ -181,4 +191,4 @@ const Layout = (props) => {
   );
 };
 
-export default withNavigate(Layout);
+export default withNavigate(withAppConsumer(Layout));

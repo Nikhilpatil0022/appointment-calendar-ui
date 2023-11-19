@@ -87,3 +87,50 @@ export const debounce = (func, delay = 500) => {
     }, delay);
   };
 };
+
+export const getOngoingWeek = () => {
+  const today = new Date();
+  const currentDay = today.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
+
+  // Calculate the start date of the ongoing week (Sunday)
+  const startDate = new Date(today);
+  startDate.setDate(today.getDate() - currentDay);
+
+  // Calculate the end date of the ongoing week (Saturday)
+  const endDate = new Date(startDate);
+  endDate.setDate(startDate.getDate() + 6);
+
+  // // Format the dates as desired
+  // const options = {
+  //   weekday: "long",
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  // };
+  // const formattedStartDate = startDate.toLocaleDateString(undefined, options);
+  // const formattedEndDate = endDate.toLocaleDateString(undefined, options);
+
+  // Return the ongoing week interval
+  return { startDate, endDate };
+};
+
+export const getOngoingWeekDates = () => {
+  const today = new Date();
+  const currentDay = today.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
+
+  // Calculate the start date of the ongoing week (Sunday)
+  const startDate = new Date(today);
+  startDate.setDate(today.getDate() - currentDay);
+
+  // Create an array to store the dates of the ongoing week
+  const weekDates = [];
+
+  // Populate the array with date objects for each day of the week
+  for (let i = 0; i < 7; i++) {
+    const currentDate = new Date(startDate);
+    currentDate.setDate(startDate.getDate() + i);
+    weekDates.push(currentDate);
+  }
+
+  return weekDates;
+};
