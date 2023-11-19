@@ -107,6 +107,7 @@ export class AppointmentForm extends Component {
           isClosable: true,
         });
         this.setState({ isLoading: false });
+        this.navigate(-1);
       },
       (err) => {
         this.setState({ isLoading: false });
