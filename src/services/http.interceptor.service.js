@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getLocalStorageItem } from "../utilitites/utilities";
 
-const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://zendenta-appointments.netlify.app";
 class _HttpInterceptor {
   constructor() {
     this.baseUrl = BASE_URL;
