@@ -7,8 +7,14 @@ import { ApiService } from "../services/api.service";
 import AppointmentFormView from "./AppointmentForm.view";
 import { withAppConsumer } from "../../context/app.context";
 import withNavigate from "../../hooks/withNavigate";
+import Layout from "../../components/Layout";
 
-const FormContainer = styled.div``;
+const FormContainer = styled.div`
+  .submit-buttom {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+  }
+`;
 
 const INITIAL_FORM_DATA = {
   patient_name: null,
@@ -131,14 +137,16 @@ export class AppointmentForm extends Component {
   render() {
     const { formData, isLoading } = this.state;
     return (
-      <FormContainer>
-        <AppointmentFormView
-          formData={formData}
-          isLoading={isLoading}
-          handleOnEachFieldChange={this.handleOnEachFieldChange}
-          handleOnFormSubmit={this.handleOnFormSubmit}
-        />
-      </FormContainer>
+      <Layout>
+        <FormContainer>
+          <AppointmentFormView
+            formData={formData}
+            isLoading={isLoading}
+            handleOnEachFieldChange={this.handleOnEachFieldChange}
+            handleOnFormSubmit={this.handleOnFormSubmit}
+          />
+        </FormContainer>
+      </Layout>
     );
   }
 }

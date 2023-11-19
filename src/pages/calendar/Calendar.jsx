@@ -31,22 +31,14 @@ export class Calendar extends Component {
     const existingAppointment = appointments.find(
       (app) => app.id === appointmentId
     );
-    // const updatedAppointments = appointments.map((appointment) => {
-    //   if (appointment.id === appointmentId) {
-    //     const duration = moment(appointment.end_time).diff(
-    //       appointment.start_time,
-    //       "hours",
-    //       true
-    //     );
-    //     const newEndTime = moment(newStartTime).add(duration, "hours").toDate();
-    //     return {
-    //       ...appointment,
-    //       start_time: newStartTime,
-    //       end_time: newEndTime,
-    //     };
-    //   }
-    //   return appointment;
-    // });
+    const formattedExistingStartDate = moment(
+      existingAppointment.start_time
+    ).format("YYYY-MM-DD HH");
+    const formattedNewStartDate = moment(newStartTime).format("YYYY-MM-DD HH");
+
+    if (formattedExistingStartDate === formattedNewStartDate) {
+      return;
+    }
 
     const duration = moment(existingAppointment.end_time).diff(
       existingAppointment.start_time,
@@ -74,10 +66,6 @@ export class Calendar extends Component {
           });
         }
       );
-
-    // this.setState({
-    //   appointments: updatedAppointments,
-    // });
   };
 
   initialize = (isRescheduled) => {

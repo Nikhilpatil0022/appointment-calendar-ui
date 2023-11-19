@@ -105,15 +105,18 @@ const AppointmentFormView = (props) => {
           <FormErrorMessage>{errorObject.summary}</FormErrorMessage>
         )}
       </FormControl>
-      <Button
-        isLoading={isLoading}
-        loadingText="Loading"
-        colorScheme="teal"
-        onClick={handleOnFormSubmit}
-        style={{ marginTop: "1rem", width: "100%" }}
-      >
-        Create
-      </Button>
+      <div className="submit-buttom">
+        <div />
+        <Button
+          isLoading={isLoading}
+          loadingText="Loading"
+          colorScheme="teal"
+          onClick={handleOnFormSubmit}
+          style={{ marginTop: "1rem", width: "100%" }}
+        >
+          Create
+        </Button>
+      </div>
     </div>
   );
 };
